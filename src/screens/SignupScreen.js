@@ -8,7 +8,7 @@ const SignupScreen = ({ navigation }) => {
   const { state, signup } = useContext(AuthContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  console.log(state);
+  // console.log(state);
   return (
     <View style={styles.container}>
       <Spacer>

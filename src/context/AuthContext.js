@@ -1,6 +1,7 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import createDataContext from "./createDataContext";
 import trackerApi from "../api/tracker";
+import { navigate } from "../navigationRef";
 
 const authReducer = (state, action) => {
   switch (action.type) {
@@ -12,44 +13,46 @@ const authReducer = (state, action) => {
       return state;
   }
 };
+
 /* 
- make api request to sign up with that email and password
- if we sign up,modify our state,and say that we are authenticated
- if signing up fails, we probably need to reflect an error somewhere
-*/
-const signup = (dispatch) => {
-  return async ({ email, password }) => {
+   make api request to sign up with that email and password
+   if we sign up,modify our state,and say that we are authenticated
+   if signing up fails, we probably need to reflect an error somewhere
+  */
+
+const signup =
+  (dispatch) =>
+  async ({ email, password }) => {
     try {
       const response = await trackerApi.post("/signup", { email, password });
-      // console.log(response.data);
       await AsyncStorage.setItem("token", response.data.token);
-      // await AsyncStorage.getItem("token");
       dispatch({ type: "signup", payload: response.data.token });
+
+      navigate("TrackList");
     } catch (err) {
-      //console.log(err.response.data);
       dispatch({
         type: "add_error",
         payload: "Something went wrong with sign up",
       });
     }
   };
-};
 
 const signin = (dispatch) => {
   return ({ email, password }) => {
-    // try to sigin
-    // handle success by updating state
-    //handle failure by showing error message (somehow)
+    // Try to signin
+    // Handle success by updating state
+    // Handle failure by showing error message (somehow)
   };
 };
-const singout = () => {
+
+const signout = (dispatch) => {
   return () => {
-    // somehow sign out !
+    // somehow sign out!!!
   };
 };
 
 export const { Provider, Context } = createDataContext(
   authReducer,
-  { signin, singout, signup },
+  { signin, signout, signup },
   { token: null, errorMessage: "" }
 );
