@@ -42,3 +42,22 @@ const styles = StyleSheet.create({
 });
 
 export default Map;
+
+/* 
+
+import { requestForegroundPermissionsAsync } from 'expo-location';
+
+const { granted } = await requestForegroundPermissionsAsync();
+
+
+  const startWatching = async () => {
+    try {
+      const { granted } = await requestPermissionsAsync();
+      if (!granted) {
+        throw new Error('Location permission not granted');
+      }
+    } catch (e) {
+      setErr(e);
+    }
+  };
+*/
