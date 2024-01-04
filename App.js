@@ -13,19 +13,24 @@ import { setNavigator } from "./src/navigationRef";
 import ResolveAuthScreen from "./src/screens/ResolveAuthScreen";
 
 const switchNavigator = createSwitchNavigator({
-  // ResolveAuth: ResolveAuthScreen,
+  ResolveAuth: ResolveAuthScreen,
   loginFlow: createStackNavigator({
     Signup: SignupScreen,
     Signin: SigninScreen,
   }),
-  mainFlow: createMaterialBottomTabNavigator({
-    trackListFlow: createStackNavigator({
-      TrackList: TrackListScreen,
-      TrackDetail: TrackDetailScreen,
-    }),
-    TrackCreate: TrackCreateScreen,
-    Account: AccountScreen,
-  }),
+  mainFlow: createMaterialBottomTabNavigator(
+    {
+      trackListFlow: createStackNavigator({
+        TrackList: TrackListScreen,
+        TrackDetail: TrackDetailScreen,
+      }),
+      TrackCreate: TrackCreateScreen,
+      Account: AccountScreen,
+    },
+    {
+      barStyle: { bottom: 15 },
+    }
+  ),
 });
 
 const App = createAppContainer(switchNavigator);
