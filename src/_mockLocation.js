@@ -16,7 +16,7 @@ const getLocation = (increment) => {
     },
   };
 };
-
+// tested purpose
 let counter = 0;
 setInterval(() => {
   Location.EventEmitter.emit("Expo.locationChanged", {
