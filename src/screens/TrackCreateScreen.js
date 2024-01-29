@@ -9,9 +9,11 @@ import useLocation from "../hooks/useLocation";
 
 const TrackCreateScreen = ({ isFocused }) => {
   const { addLocation } = useContext(LocationContext);
-  const [err] = useLocation(addLocation);
+  const [err] = useLocation(isFocused, addLocation);
+  // isFocused true we want start location tracking
+  // isFocused false stopped tracking all together,second argumen is callback fucnt, anyrtime use location change is/
   // const [err]=useLocation((location)=>{addLocation(location)})
-  console.log(isFocused);
+  // console.log(isFocused);
   return (
     <SafeAreaView>
       <Text h2>TrackCreateScreen</Text>
