@@ -4,5 +4,5 @@ export default axios.create({
   headers: {
     "ngrok-skip-browser-warning": "true",
   },
-  baseURL: "https://03aa-2601-646-c000-1af0-74f0-5bbd-dc0e-c0b1.ngrok-free.app",
+  baseURL: "https://6fcb-2601-646-c000-1af0-a52d-369f-f4b4-6fd3.ngrok-free.app",
 });
