@@ -9,8 +9,10 @@ import useLocation from "../hooks/useLocation";
 import TrackForm from "../components/TrackForm";
 
 const TrackCreateScreen = ({ isFocused }) => {
-  const { addLocation } = useContext(LocationContext);
-  const [err] = useLocation(isFocused, addLocation);
+  const { addLocation, state } = useContext(LocationContext);
+  const [err] = useLocation(isFocused, (location) => {
+    addLocation(location, state.recording);
+  });
   // isFocused true we want start location tracking
   // isFocused false stopped tracking all together,second argumen is callback fucnt, anyrtime use location change is/
   // const [err]=useLocation((location)=>{addLocation(location)})
