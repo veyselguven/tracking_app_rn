@@ -4,7 +4,7 @@ const locationReducer = (state, action) => {
   switch (action.type) {
     case "add_current_location":
       return { ...state, currentLocation: action.payload };
-    case "starting_recording":
+    case "start_recording":
       return { ...state, recording: true };
     case "stop_recording":
       return { ...state, recording: false };
@@ -43,5 +43,5 @@ export const { Context, Provider } = createDataContext(
     addLocation,
     changeName,
   },
-  { name: "", recording: false, locations: [], currentLocation: null }
+  { name: " ", recording: false, locations: [], currentLocation: null }
 );
