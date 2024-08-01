@@ -27,9 +27,9 @@ export default (shouldTrack, callback) => {
           // }
           callback
         );
-        if (!granted) {
-          throw new Error("Location permission not granted");
-        }
+        // if (!granted) {
+        //   throw new Error("Location permission not granted");
+        // }
       } catch (e) {
         setErr(e);
       }
