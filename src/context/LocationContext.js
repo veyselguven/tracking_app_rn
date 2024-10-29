@@ -46,3 +46,8 @@ export const { Context, Provider } = createDataContext(
   },
   { name: " ", recording: false, locations: [], currentLocation: null }
 );
+
+// All about tracking the user location + storing points
+
+// track context
+// All about saving retrieving existing tracks from our API
