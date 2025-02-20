@@ -7,6 +7,7 @@ import "../_mockLocation";
 import { Context as LocationContext } from "../context/LocationContext";
 import useLocation from "../hooks/useLocation";
 import TrackForm from "../components/TrackForm";
+import FontAwesome from "@expo/vector-icons/FontAwesome";
 
 const TrackCreateScreen = ({ isFocused }) => {
   const { addLocation, state } = useContext(LocationContext);
@@ -30,6 +31,11 @@ const TrackCreateScreen = ({ isFocused }) => {
       <TrackForm />
     </SafeAreaView>
   );
+};
+
+TrackCreateScreen.navigationOptions = {
+  title: "Add Track",
+  tabBarIcon: <FontAwesome name="plus" size={24} color="black" />,
 };
 
 const style = StyleSheet.create({});

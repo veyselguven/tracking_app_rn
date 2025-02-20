@@ -5,7 +5,8 @@ const instance = axios.create({
   headers: {
     "ngrok-skip-browser-warning": "true",
   },
-  baseURL: "https://c446-2601-640-8c81-5fb0-1c55-fb3e-bc09-2c8.ngrok-free.app",
+  baseURL:
+    "https://b6a9-2603-3024-18d6-b000-e05f-1fd4-ebbb-275c.ngrok-free.app",
 });
 // export default axios.create({
 //   headers: {
